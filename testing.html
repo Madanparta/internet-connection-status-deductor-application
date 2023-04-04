@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./internet.css">
+    <title>testing internet</title>
+</head>
+<body>
+    <section class="container">
+        <section class="mainContainer">
+            <h1>Internet Connection Status</h1>
+            <P class="status" id="status">Pending</P>
+        </section>
+    </section>
+
+    <!-- js -->
+    <script>
+        let displayStatus = document.querySelector('.status');
+        let container = document.querySelector('.container')
+        window.addEventListener('load',(event)=>{
+            displayStatus.textContent = navigator.onLine?"Online":"Offline";
+        });
+
+        window.addEventListener("offline",(event)=>{
+            displayStatus.textContent = "Offline";
+            container.classList.remove("online")
+        });
+
+        window.addEventListener("online",(event)=>{
+            displayStatus.textContent = "Online";
+            container.classList.add("online")
+        })
+    </script>
+</body>
+</html>
